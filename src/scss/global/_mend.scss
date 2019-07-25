@@ -1,0 +1,14 @@
+@charset "utf-8";
+.s-card .el-tabs__nav-wrap {
+    display: flex;
+    // justify-content: center;
+}
+.el-input--mini .el-input__inner {
+    height: 28px !important; //fix size="mini"高度改变
+}
+.el-form-item__label {
+    // font-size: 15px !important;
+}
+.el-form-item{
+    margin-bottom: 0 !important;
+}
