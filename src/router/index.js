@@ -5,6 +5,7 @@ import "nprogress/nprogress.css"
 //=====================================注册登陆页面====================================//
 import login from "@/pages/login/login"
 import layout from "../pages/layout/index"
+import hmt from "@/pages/hmt/hmt"
 
 //=====================================业务逻辑页面====================================//
 
@@ -24,7 +25,7 @@ const router = new Router({
     routes: [
         {
             path: "/",
-            redirect: "/v1/test/a"
+            redirect: "/hmt"
         },
         {
             path: "/login",
@@ -37,6 +38,18 @@ const router = new Router({
                 }
             },
             component: login
+        },
+        {
+            path: "/hmt",
+            name: "hmt",
+            meta: {
+                testInfo: {
+                    desc: "登陆页面",
+                    key: "hmt",
+                    trigger: "hmt"
+                }
+            },
+            component: hmt
         },
         {
             path: "/v1",
