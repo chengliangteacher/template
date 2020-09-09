@@ -1,6 +1,6 @@
 <template>
     <div class="layout-container">
-        <s-header v-if="false"></s-header>
+        <s-header v-if="true"></s-header>
         <div class="layout-wrap">
             <!-- <div class="layout-banner"> -->
             <s-banner></s-banner>
@@ -13,7 +13,9 @@
                     <s-bread></s-bread>
                 </div>
                 <el-scrollbar wrap-class="content-wrap">
-                    <s-content></s-content>
+                    <s-content>
+                        <s-bread slot="header"></s-bread>
+                    </s-content>
                 </el-scrollbar>
             </div>
         </div>
@@ -32,24 +34,24 @@ export default {
         "s-content": content,
         "s-banner": banner,
         "s-tabs": tabs,
-        "s-bread": bread
+        "s-bread": bread,
     },
     data() {
         return {
             isShowTabs: false,
-            isShowBread: true,
-            isMobile: false
+            isShowBread: false,
+            isMobile: false,
         };
     },
     computed: {
         isExpandBanner() {
             return this.$store.state.layout.isExpandBanner;
-        }
+        },
     },
     created() {
         if (process.env.NODE_ENV === "development") {
-            this.isShowTabs = true;
-            this.isShowBread = true;
+            this.isShowTabs = false;
+            this.isShowBread = false;
         }
         if (window.innerWidth <= 992) {
             this.isMobile = true;
@@ -65,7 +67,7 @@ export default {
                     : (this.isMobile = false);
             })
         );
-    }
+    },
 };
 </script>
 
@@ -75,8 +77,8 @@ export default {
 }
 .layout-wrap {
     display: flex;
-    // height: calc(100vh - 60px);
-    height: 100vh;
+    height: calc(100vh - 60px);
+    // height: 100vh;
     width: 100%;
 }
 
@@ -85,6 +87,7 @@ export default {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background: rgb(240, 240, 240);
     margin-left: 200px;
     transition: margin-left 0.3s;
     // position: fixed;
@@ -99,9 +102,8 @@ export default {
         .el-scrollbar {
             height: calc(100vh - 80px);
         }
-        padding: 1em 1em 0 1em;
-        height: calc(100vh - 80px);
-        background: rgb(240, 240, 240);
+        padding: 10px 10px 0 10px;
+        height: calc(100vh - 60px);
         @media (max-width: 992px) {
             padding: 0;
         }

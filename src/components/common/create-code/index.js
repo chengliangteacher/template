@@ -147,7 +147,7 @@ class GenerateCode {
     //=====================================创建搜索框模板====================================//
     /* 
         @description  公用替换LVPG(label, v-model, placeholder, grid)
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 14:00"
         @params       
         @return       
@@ -164,7 +164,7 @@ class GenerateCode {
     }
     /* 
         @description  创建普通输入框template
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 13:57"
         @params       type  1.普通输入框   2.可清空输入框
         @return       无
@@ -180,7 +180,7 @@ class GenerateCode {
     }
     /* 
         @description  创建单选框
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 14:33"
         @params       type  1.单选框(固定值)  2.单选框(可清空)   3.单选框(远程)   4.单选框(远程全部)
         @return       
@@ -254,7 +254,7 @@ class GenerateCode {
 
     /* 
         @description  创建多选框
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 16:40"
         @params       type  1.多选框(远程)    2.多选框(远程可清空)
         @return       
@@ -302,7 +302,7 @@ class GenerateCode {
     }
     /* 
         @description  创建单日期
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 17:36"
         @params       type  1.单日期     2.单日期(大于今天)    3.单日期(大于等于今天)     4.单日期(小于今天)     5.单日期(小于等于今天)
         @return       
@@ -356,7 +356,7 @@ class GenerateCode {
 
     /* 
         @description  创建日期范围
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 22:00"
         @params       type  1.多日期     2.多日期(大于今天)    3.多日期(大于等于今天)    4.多日期(小于今天)    5.多日期(小于等于今天)
         @return       
@@ -526,7 +526,7 @@ class GenerateCode {
 
     /* 
         @description  创建日期时间范围
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-23 23:10"
         @params       
         @return       
@@ -693,7 +693,7 @@ class GenerateCode {
     
     /* 
         @description  创建tabs
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-27 10:30"
         @params       
         @return       
@@ -719,7 +719,7 @@ class GenerateCode {
 
     /* 
         @description  创建tableTemplate
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-28 13:24"
         @params       
         @return       
@@ -856,7 +856,7 @@ class GenerateCode {
 
     /* 
         @description  创建单个table
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-27 16:28"
         @params       
         @return       
@@ -901,7 +901,7 @@ class GenerateCode {
 
     /* 
         @description  创建多table
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-27 15:27"
         @params       
         @return       

@@ -1,6 +1,6 @@
 /* 
     @description  mock二次封装
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 19:26"
 */
 import Mock from "mockjs";
@@ -21,7 +21,7 @@ const pointArea = area.RECORDS.map(val => {
 
 /* 
     @description  扩展数据模板
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 19:29"
     @params       
     @return       
@@ -29,7 +29,7 @@ const pointArea = area.RECORDS.map(val => {
 Random.extend({
     /* 
         @description  经纬度
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-04-16 19:30"
         @params       地区名称，带 "市" 字
     */
@@ -63,7 +63,7 @@ Random.extend({
     },
     /* 
         @description  食品大类
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-04-24 20:40"
         @return       某个食品大类
     */
@@ -81,7 +81,7 @@ Random.extend({
     },
     /* 
         @description  食品亚类
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-04-24 20:40"
         @return       某个食品亚类
     */
@@ -99,7 +99,7 @@ Random.extend({
     },
     /* 
         @description  食品细类
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-04-24 20:35"
         @return       某个食品细类
     */
@@ -117,7 +117,7 @@ Random.extend({
     },
     /* 
         @description  公司名称
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-04-25 09:33"
     */
     ccompany() {
@@ -134,7 +134,7 @@ Random.extend({
     },
     /* 
         @description  随机地址生成
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-04-25 09:33"
     */
     address() {
@@ -150,7 +150,7 @@ Random.extend({
     },
     /* 
         @description  生成图片
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-10 16:10"
         @params       
         @return       
@@ -164,7 +164,7 @@ Random.extend({
     },
     /* 
         @description  生成文件
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-14 15:48"
         @params       
         @return       
@@ -178,7 +178,7 @@ Random.extend({
     },
     /* 
         @description  抽样单编号
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-14 15:31"
         @params       
         @return       
@@ -188,7 +188,7 @@ Random.extend({
     },
     /* 
         @description  测试数据  随机生成   时间   数字   字符串  对象   null  undefined  ""  0  -1  NaN  Infinity 长字符串  长数字   空对象 最大值  最小值 MAX_VALUE  MIN_VALUE
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-14 14:25"
         @params       
         @return       

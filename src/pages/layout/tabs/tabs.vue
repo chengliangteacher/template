@@ -46,7 +46,7 @@ export default {
     data() {
         return {
             //tab右键弹框
-            ctx: null
+            ctx: null,
         };
     },
     computed: {
@@ -59,35 +59,35 @@ export default {
             } else {
                 return null;
             }
-        }
+        },
     },
     watch: {
         $route: {
             handler(val) {
-                const hasRoute = this.$store.state.layout.tabs.some(tab => {
+                const hasRoute = this.$store.state.layout.tabs.some((tab) => {
                     return tab.path === val.fullPath;
                 });
                 if (!hasRoute) {
                     const rObj = {
                         path: val.fullPath,
-                        meta: val.meta
+                        meta: val.meta,
                     };
                     this.$store.commit("addTabs", rObj);
                 }
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
     mounted() {
         this.$nextTick(() => {
-            document.body.addEventListener("click", e => {
+            document.body.addEventListener("click", (e) => {
                 // e.stopPropagation();
                 if (this.ctx) {
                     document.body.removeChild(this.ctx);
                     this.ctx = null;
                 }
             });
-            this.$el.addEventListener("contextmenu", e => {
+            this.$el.addEventListener("contextmenu", (e) => {
                 e.returnValue = false;
             });
             window.innerWidth <= 992
@@ -160,40 +160,40 @@ export default {
             const c2 = document.querySelector(".c2");
             const c3 = document.querySelector(".c3");
             const c4 = document.querySelector(".c4");
-            c1.addEventListener("click", e => {
+            c1.addEventListener("click", (e) => {
                 if (this.tabs.length !== 1) {
                     this.$store.commit("deleteTabs", {
                         start: index + 1,
-                        num: this.tabs.length - index - 1
+                        num: this.tabs.length - index - 1,
                     });
                     this.$router.push(this.tabs[index].path);
                 }
             });
-            c1.addEventListener("mouseover", e => {
+            c1.addEventListener("mouseover", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#eee";
             });
-            c1.addEventListener("mouseout", e => {
+            c1.addEventListener("mouseout", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#fff";
             });
             //=========================================================================//
-            c2.addEventListener("click", e => {
+            c2.addEventListener("click", (e) => {
                 if (this.tabs.length !== 1) {
                     this.$store.commit("deleteTabs", { start: 0, num: index });
                     this.$router.push(this.tabs[0].path);
                 }
             });
-            c2.addEventListener("mouseover", e => {
+            c2.addEventListener("mouseover", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#eee";
             });
-            c2.addEventListener("mouseout", e => {
+            c2.addEventListener("mouseout", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#fff";
             });
             //=========================================================================//
-            c3.addEventListener("click", e => {
+            c3.addEventListener("click", (e) => {
                 if (this.tabs.length === 1) {
                     return;
                 }
@@ -209,30 +209,30 @@ export default {
                     }
                 }
             });
-            c3.addEventListener("mouseover", e => {
+            c3.addEventListener("mouseover", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#eee";
             });
-            c3.addEventListener("mouseout", e => {
+            c3.addEventListener("mouseout", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#fff";
             });
             //=========================================================================//
-            c4.addEventListener("click", e => {
+            c4.addEventListener("click", (e) => {
                 if (this.tabs.length !== 1) {
                     this.$store.commit("deleteTabs", {
                         start: index + 1,
-                        num: this.tabs.length - index - 1
+                        num: this.tabs.length - index - 1,
                     });
                     this.$store.commit("deleteTabs", { start: 0, num: index });
                     this.$router.push(this.tabs[0].path);
                 }
             });
-            c4.addEventListener("mouseover", e => {
+            c4.addEventListener("mouseover", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#eee";
             });
-            c4.addEventListener("mouseout", e => {
+            c4.addEventListener("mouseout", (e) => {
                 e.stopPropagation();
                 e.target.style.background = "#fff";
             });
@@ -250,7 +250,7 @@ export default {
             localStorage.clear();
             this.$router.replace("/login");
             this.$store.commit("clearTabs");
-            this.axios.get(`/login/out`).then(res => {});
+            this.axios.get(`/login/out`).then((res) => {});
         },
         //=====================================跳转到通知界面====================================//
         jumpToNotice() {
@@ -259,8 +259,8 @@ export default {
         //=====================================跳转到更新页面====================================//
         jumptoEdit() {
             this.$router.push("/v1/editnotice");
-        }
-    }
+        },
+    },
 };
 </script>
 

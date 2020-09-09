@@ -1,5 +1,10 @@
 <template>
-    <router-view></router-view>
+    <el-card>
+        <div slot="header">
+            <slot name="header"></slot>
+        </div>
+        <router-view></router-view>
+    </el-card>
 </template>
 
 <script>

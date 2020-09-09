@@ -1,6 +1,6 @@
 /* 
     @description  抽样人员分布
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:22"
     @params       
     @return       
@@ -11,7 +11,7 @@ const packMsg = utils.packMsg;
 
 /* 
     @description  重点关注地区级联选择
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:25"
     @params       
     @return       

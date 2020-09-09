@@ -1,6 +1,6 @@
 /* 
     @description  抽样人员分布
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:22"
     @params       
     @return       
@@ -15,7 +15,7 @@ const Random = Mock.Random
 
 /* 
     @description  抽样时间分布
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:25"
     @params       
     @return       

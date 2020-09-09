@@ -1,5 +1,5 @@
 /*
-    创建者：shuxiaokai
+    创建者：chengliang
     创建时间：2019-05-07 17:33
     模块名称：xxxx
     备注：xxxx
@@ -444,7 +444,7 @@ export default {
         //=====================================添加方法====================================//
         /* 
             @description  新增方法
-            @autor        shuxiaokai
+            @autor        chengliang
             @create       2019-05-21 13:59"
             @params       type 1代表获取selectOptions数据   
             @params       {

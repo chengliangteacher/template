@@ -24,7 +24,7 @@ module.exports = {
         resolve: {
             alias: {
                 "@": path.resolve(__dirname, "src/"),
-                "~": path.resolve(__dirname, "")
+                "~": path.resolve(__dirname, "node_modules/")
             }
         },
     },
@@ -47,7 +47,7 @@ module.exports = {
     //=====================================eslint配置====================================//
     lintOnSave: "error", //未通过eslint 禁止代码提交
     //=====================================打包上线配置====================================//
-    publicPath: "/",
+    publicPath: "/app",
     outputDir: "./app", //输出文件类型
     productionSourceMap: false, //打包时候js是否添加sourceMap
 };

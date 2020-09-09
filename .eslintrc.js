@@ -1,5 +1,5 @@
 /*
-	作者: shuxiaokai
+	作者: chengliang
 	相关参考: https://cn.eslint.org/docs/rules 
 	日期: 2019-05-04
 	最近更新: 

@@ -1,6 +1,6 @@
 /*
  * @description 时间格式转化
- * @author shuxiaokai
+ * @author chengliang
  * @param data		合法的时间戳或者Date对象
  * @param rule		转换时间的规则目前支持YY，MM，DD，HH，mm，ss, week, cd(距离现在的时间), media(媒体时间，视频音频的播放时间，最高99分钟59秒)
  * 注意new Date()不传参数获取month为0-11；传递了月份参数则获取月份为当前月份

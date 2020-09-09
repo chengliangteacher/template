@@ -1,6 +1,6 @@
 /* 
     @description  抽样人员分布
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:22"
     @params       
     @return       
@@ -11,7 +11,7 @@ const packMsg = utils.packMsg;
 
 /* 
     @description  在线抽样人员地图上今日抽样详情
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:25"
     @params       
     @return       
@@ -28,7 +28,7 @@ const a1 = packMsg({
 
 /* 
     @description  抽样人员登陆、在线总数
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:25"
     @params       
     @return       
@@ -46,7 +46,7 @@ const a2 = packMsg({
 
 /* 
     @description  抽样人员登陆、在线总数
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-16 16:25"
     @params       
     @return       

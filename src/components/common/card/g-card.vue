@@ -105,9 +105,9 @@ export default {
 }
 .s-card header .title {
     padding-left: 1.5em;
-    color: #369;
+    // color: $--color-primary;
     font-weight: bolder;
-    border-left: 4px solid #409eff;
+    // border-left: 4px solid $--color-primary;
 }
 .s-card .content {
     position: relative;

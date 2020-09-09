@@ -25,7 +25,7 @@ const router = new Router({
     routes: [
         {
             path: "/",
-            redirect: "/hmt"
+            redirect: "/v1/test/c"
         },
         {
             path: "/login",
@@ -119,6 +119,7 @@ if (1 || process.env.NODE_ENV === "development") {
 }
 
 router.beforeEach(async(to, from, next) => {
+    console.log(to);
     NProgress.start()
     next()
 })

@@ -42,7 +42,7 @@ export const getQueryParams = str => {
 }
 /* 
     @description  去抖
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-05-30 13:21"
     @params       
     @return       
@@ -62,7 +62,7 @@ export const debounce = (fn, delay = 300) => {
 
 /* 
     @description  节流
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-05-30 13:21"
     @params       
     @return       
@@ -81,7 +81,7 @@ export const throttle = (fn, delay = 300) => {
 
 /* 
     @description  将数据导出为文件
-    @autor        shuxiaokai
+    @autor        chengliang
     @create       2019-04-19 17:18"
     @params       
     @return       

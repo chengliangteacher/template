@@ -1,8 +1,15 @@
 <template>
     <div id="s-header" class="s-header">
-        <div class="title">
-            <!-- <span>logo</span> -->
-            <span>社会共治</span>
+        <div class="d-flex center">
+            <div class="title">
+                <!-- <span>logo</span> -->
+                <span>系统模版xxxxxxxxxxxxxxxx</span>
+            </div>
+            <div class="fold" @click.stop="expand">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
         <div id="utils" class="utils">
             <div class="icons s-dirver-notice" @click="jumpToNotice">
@@ -18,8 +25,8 @@
             </div>
             <div class="dropdown">
                 <el-dropdown>
-                    <span class="gray-200 cursor-pointer">
-                        <span>{{ userinfo.username }}周小川</span>
+                    <span class="gray-900 cursor-pointer">
+                        <span>{{ userinfo.username }}xxxx</span>
                         <i class="el-icon-arrow-down el-icon--right"></i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
@@ -37,12 +44,13 @@
 import Driver from "driver.js";
 import "driver.js/dist/driver.min.css"; //引入driver
 import step from "./step";
+import { throttle } from "@/lib/utils";
 export default {
     components: {},
     data() {
         return {
             driver: null,
-            userinfo: {} //---------------------------个人信息
+            userinfo: {}, //---------------------------个人信息
         };
     },
     created() {},
@@ -52,7 +60,30 @@ export default {
             nextBtnText: "下一个提示",
             prevBtnText: "上一条提示",
             doneBtnText: "关闭",
-            closeBtnText: "跳过"
+            closeBtnText: "跳过",
+        });
+        this.$nextTick(() => {
+            document.body.addEventListener("click", (e) => {
+                // e.stopPropagation();
+                if (this.ctx) {
+                    document.body.removeChild(this.ctx);
+                    this.ctx = null;
+                }
+            });
+            this.$el.addEventListener("contextmenu", (e) => {
+                e.returnValue = false;
+            });
+            window.innerWidth <= 992
+                ? (this.isMobile = true)
+                : (this.isMobile = false);
+            window.addEventListener(
+                "resize",
+                throttle(() => {
+                    window.innerWidth <= 992
+                        ? (this.isMobile = true)
+                        : (this.isMobile = false);
+                })
+            );
         });
     },
     methods: {
@@ -75,9 +106,17 @@ export default {
             localStorage.clear();
             this.$router.replace("/login");
             this.$store.commit("clearTabs");
-            this.axios.get(`/login/out`).then(res => {});
-        }
-    }
+            this.axios.get(`/login/out`).then((res) => {});
+        },
+        //=====================================触发展开事件====================================//
+        expand() {
+            if (this.isMobile) {
+                this.$store.commit("toggleMobileBanner");
+            } else {
+                this.$store.commit("toggleBanner");
+            }
+        },
+    },
 };
 </script>
 
@@ -87,11 +126,11 @@ export default {
 .s-header {
     height: 60px;
     padding: 0 2em;
-    background: $gray-700;
+    background: $white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: $white;
+    color: $gray-900;
     .utils {
         display: flex;
         align-items: center;
@@ -109,6 +148,38 @@ export default {
             .iconfont {
                 font-size: 18px;
             }
+        }
+    }
+    .fold {
+        margin: 0 1rem;
+        height: 40px;
+        width: 30px;
+        line-height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        cursor: pointer;
+        span {
+            transition: all 0.33s;
+            display: inline-block;
+            width: 100%;
+            height: 3px;
+            background: #777;
+            &:nth-of-type(1) {
+                transform: translate(0, -4px);
+            }
+            &:nth-of-type(2) {
+                height: 2px;
+            }
+            &:nth-of-type(3) {
+                transform: translate(0, 4px);
+            }
+        }
+        &:hover span:nth-of-type(1) {
+            transform: translate(0, -6px);
+        }
+        &:hover span:nth-of-type(3) {
+            transform: translate(0, 6px);
         }
     }
 }

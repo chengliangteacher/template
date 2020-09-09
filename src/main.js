@@ -9,9 +9,10 @@ import "./components/index"
 
 //========================第三方模块引入=============================//
 import ElementUI from "element-ui"
-import "element-ui/lib/theme-chalk/index.css"
+// import "element-ui/lib/theme-chalk/index.css"
 import "@/assert/css/animate.css" //引入动画库
 import axios from "./api/api"
+import "./scss/element-variables/element-variables.scss";
 
 Vue.use(ElementUI)
 Vue.use(axios)

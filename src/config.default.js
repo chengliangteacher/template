@@ -7,7 +7,7 @@ export const BaseConfig = {
     //=====================================开发环境====================================//
     /* 
         @description  本地环境process.env.NODE_ENV自动转换为prodection，会使用下面的服务器地址
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-12 11:47"
     */
     devUrl: "/", //--------------------------------------------------开发服务器
@@ -19,7 +19,7 @@ export const BaseConfig = {
     //=====================================线上环境====================================//
     /* 
         @description  打包后process.env.NODE_ENV自动转换为development，会使用下面的服务器地址
-        @autor        shuxiaokai
+        @autor        chengliang
         @create       2019-05-12 11:46"
     */
     proUrl: "/", //-----------------------------------------------------线上服务器

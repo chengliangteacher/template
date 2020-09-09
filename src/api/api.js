@@ -17,7 +17,6 @@
  *
  */
 import axios from "axios";
-import router from "../router";
 import { BaseConfig } from "@/config.default"
 import mock from "@/mock/development"
 
