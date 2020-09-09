@@ -48,7 +48,6 @@ export default {
     data() {
         return {
             activeIndex: "",
-            isMobile: false,
         };
     },
     computed: {
@@ -60,6 +59,9 @@ export default {
         },
         isExpandMobileBanner() {
             return this.$store.state.layout.isExpandMobileBanner;
+        },
+        isMobile() {
+            return this.$store.state.layout.isMobile;
         },
     },
     watch: {
@@ -77,14 +79,16 @@ export default {
     created() {
         this.activeIndex = this.$route.path;
         if (window.innerWidth <= 992) {
-            this.isMobile = true;
+            this.$store.commit("changeMobie", true);
         }
         window.addEventListener(
             "resize",
             throttle(() => {
-                window.innerWidth <= 992
-                    ? (this.isMobile = true)
-                    : (this.isMobile = false);
+                if (window.innerWidth <= 992) {
+                    this.$store.commit("changeMobie", true);
+                } else {
+                    this.$store.commit("changeMobie", false);
+                }
             })
         );
         document.body.addEventListener("click", (e) => {
@@ -134,14 +138,13 @@ export default {
 <style lang="scss">
 .navbar-container {
     height: 100%;
-    // height: calc(100vh - 40px);
     width: 200px;
     overflow-x: hidden;
-    background-color: #304156;
+    overflow-y: auto;
+    background-color: white;
     transition: all 0.3s;
     position: fixed;
-    // top: 60px;
-    z-index: 1;
+    z-index: 10;
     &.fold {
         width: 62px !important;
     }
@@ -149,11 +152,13 @@ export default {
         transform: translate3D(-200px, 0, 0);
     }
     &.mobile_expand {
-        box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.5);
+        box-shadow: 0px 20px 20px 0px rgba(0, 0, 0, 0.5);
         transform: translate3D(0px, 0, 0);
     }
     .scrollbar-wrapper {
-        height: 100%;
+        // height: 100%;
+        height: calc(100vh - 60px);
+        overflow-y: auto;
         overflow-x: hidden;
     }
     .el-scrollbar,
@@ -169,7 +174,7 @@ export default {
     .el-menu {
         border: none;
     }
-    &.shadow_box{
+    &.shadow_box {
         box-shadow: none !important;
     }
     // .router-link-active .el-menu-item {

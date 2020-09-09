@@ -27,7 +27,6 @@ import content from "@/pages/layout/content/content.vue";
 import banner from "@/pages/layout/banner/banner.vue";
 import tabs from "@/pages/layout/tabs/tabs.vue";
 import bread from "@/pages/layout/bread/bread.vue";
-import { throttle } from "@/lib/utils";
 export default {
     components: {
         "s-header": header,
@@ -40,33 +39,15 @@ export default {
         return {
             isShowTabs: false,
             isShowBread: false,
-            isMobile: false,
         };
     },
     computed: {
         isExpandBanner() {
             return this.$store.state.layout.isExpandBanner;
         },
-    },
-    created() {
-        if (process.env.NODE_ENV === "development") {
-            this.isShowTabs = false;
-            this.isShowBread = false;
+        isMobile() {
+            return this.$store.state.layout.isMobile;
         }
-        if (window.innerWidth <= 992) {
-            this.isMobile = true;
-        }
-        window.innerWidth <= 992
-            ? (this.isMobile = true)
-            : (this.isMobile = false);
-        window.addEventListener(
-            "resize",
-            throttle(() => {
-                window.innerWidth <= 992
-                    ? (this.isMobile = true)
-                    : (this.isMobile = false);
-            })
-        );
     },
 };
 </script>

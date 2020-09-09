@@ -49,6 +49,7 @@ export default {
         isExpandMobileBanner: false, //是否折叠左侧移动端banner
         tabs: [], 
         isNotic: false, //是否存在更新消息
+        isMobile: false, //是否宽度小于992
     },
     mutations: {
         toggleBanner(state) {
@@ -92,6 +93,10 @@ export default {
         //=====================================更新用户菜单====================================//
         changePermission(state, payload) {
             state.banner = payload;
+        },
+        //=====================================设置mobie====================================//
+        changeMobie(state, data) {
+            state.isMobile = data;
         }
     },
     actions: {

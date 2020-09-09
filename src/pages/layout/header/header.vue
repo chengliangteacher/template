@@ -44,7 +44,6 @@
 import Driver from "driver.js";
 import "driver.js/dist/driver.min.css"; //引入driver
 import step from "./step";
-import { throttle } from "@/lib/utils";
 export default {
     components: {},
     data() {
@@ -52,6 +51,11 @@ export default {
             driver: null,
             userinfo: {}, //---------------------------个人信息
         };
+    },
+    computed: {
+        isMobile() {
+            return this.$store.state.layout.isMobile;
+        }
     },
     created() {},
     mounted() {
@@ -61,29 +65,6 @@ export default {
             prevBtnText: "上一条提示",
             doneBtnText: "关闭",
             closeBtnText: "跳过",
-        });
-        this.$nextTick(() => {
-            document.body.addEventListener("click", (e) => {
-                // e.stopPropagation();
-                if (this.ctx) {
-                    document.body.removeChild(this.ctx);
-                    this.ctx = null;
-                }
-            });
-            this.$el.addEventListener("contextmenu", (e) => {
-                e.returnValue = false;
-            });
-            window.innerWidth <= 992
-                ? (this.isMobile = true)
-                : (this.isMobile = false);
-            window.addEventListener(
-                "resize",
-                throttle(() => {
-                    window.innerWidth <= 992
-                        ? (this.isMobile = true)
-                        : (this.isMobile = false);
-                })
-            );
         });
     },
     methods: {

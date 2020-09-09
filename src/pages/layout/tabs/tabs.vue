@@ -41,7 +41,6 @@
 </template>
 
 <script>
-import { throttle } from "@/lib/utils";
 export default {
     data() {
         return {
@@ -60,6 +59,9 @@ export default {
                 return null;
             }
         },
+        isMobile() {
+            return this.$store.state.layout.isMobile;
+        }
     },
     watch: {
         $route: {
@@ -77,31 +79,6 @@ export default {
             },
             immediate: true,
         },
-    },
-    mounted() {
-        this.$nextTick(() => {
-            document.body.addEventListener("click", (e) => {
-                // e.stopPropagation();
-                if (this.ctx) {
-                    document.body.removeChild(this.ctx);
-                    this.ctx = null;
-                }
-            });
-            this.$el.addEventListener("contextmenu", (e) => {
-                e.returnValue = false;
-            });
-            window.innerWidth <= 992
-                ? (this.isMobile = true)
-                : (this.isMobile = false);
-            window.addEventListener(
-                "resize",
-                throttle(() => {
-                    window.innerWidth <= 992
-                        ? (this.isMobile = true)
-                        : (this.isMobile = false);
-                })
-            );
-        });
     },
     methods: {
         //触发展开事件
