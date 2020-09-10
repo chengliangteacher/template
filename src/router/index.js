@@ -8,9 +8,9 @@ import layout from "../pages/layout/index"
 
 //=====================================业务逻辑页面====================================//
 
-
 //=====================================扩展页面====================================//
 import enlarge from "./enlarge/index"
+import a from "./pages/a"
 import test from "@/pages/test/test.vue"
 import test2 from "@/pages/test/test1.vue"
 import testA from "@/pages/test/test-a/a.vue"
@@ -42,7 +42,8 @@ const router = new Router({
             path: "/v1",
             component: layout,
             children: [
-                ...enlarge
+                ...enlarge,
+                ...a
             ]
         }
     ]

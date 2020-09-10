@@ -32,7 +32,7 @@ module.exports = {
     devServer: {
         proxy: {
             "/": {
-                target: "http://shgz.xrdev.cn",
+                target: "http://sz.xrdev.cn",
                 // target: "",
                 ws: false,
                 changeOrigin: true
@@ -47,7 +47,7 @@ module.exports = {
     //=====================================eslint配置====================================//
     lintOnSave: "error", //未通过eslint 禁止代码提交
     //=====================================打包上线配置====================================//
-    publicPath: "/app",
+    publicPath: "/",
     outputDir: "./app", //输出文件类型
     productionSourceMap: false, //打包时候js是否添加sourceMap
 };
