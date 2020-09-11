@@ -1,6 +1,6 @@
 <template>
     <div id="s-header" class="s-header">
-        <div class="d-flex center">
+        <div class="d-flex center flex-1">
             <div class="title">
                 <!-- <span>logo</span> -->
                 <span>系统模版xxxxxxxxxxxxxxxx</span>
@@ -10,6 +10,7 @@
                 <span></span>
                 <span></span>
             </div>
+            <header-tab class="flex-1"></header-tab>
         </div>
         <div id="utils" class="utils">
             <div class="icons s-dirver-notice" @click="jumpToNotice">
@@ -44,8 +45,11 @@
 import Driver from "driver.js";
 import "driver.js/dist/driver.min.css"; //引入driver
 import step from "./step";
+import Tab from "../tabs/tabs";
 export default {
-    components: {},
+    components: {
+        "header-tab": Tab,
+    },
     data() {
         return {
             driver: null,
@@ -55,7 +59,7 @@ export default {
     computed: {
         isMobile() {
             return this.$store.state.layout.isMobile;
-        }
+        },
     },
     created() {},
     mounted() {

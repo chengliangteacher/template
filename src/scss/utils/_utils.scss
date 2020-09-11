@@ -308,6 +308,9 @@ $fonts2: (
     &.flex-column {
         flex-direction: column;
     }
+    &.flex-1 {
+        flex-grow: 1;
+    }
     &.justify-start {
         justify-content: flex-start;
     }

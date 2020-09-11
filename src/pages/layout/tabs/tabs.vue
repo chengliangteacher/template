@@ -1,10 +1,5 @@
 <template>
     <div class="tabs">
-        <div class="fold" @click.stop="expand">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <div class="my-tabs d-flex">
             <el-button icon="el-icon-d-arrow-left" class="left" @click="left"></el-button>
             <div id="tabList" class="tab-list">
@@ -14,28 +9,6 @@
                 </div>
             </div>
             <el-button icon="el-icon-d-arrow-right" class="right" @click="right"></el-button>
-        </div>
-        <div class="d-flex align-center utils">
-            <div class="icons s-dirver-notice" @click="jumpToNotice">
-                <el-badge is-dot>
-                    <i class="iconfont el-icon-bell"></i>
-                </el-badge>
-            </div>
-            <div class="icons s-dirver-edit" @click="jumptoEdit">
-                <i class="iconfont el-icon-edit"></i>
-            </div>
-            &nbsp;&nbsp;&nbsp;
-            <el-dropdown>
-                <span class="gray-700 cursor-pointer">
-                    <span>周小川</span>
-                    <i class="el-icon-arrow-down el-icon--right"></i>
-                </span>
-                <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>个人中心</el-dropdown-item>
-                    <el-dropdown-item>新消息推送</el-dropdown-item>
-                    <el-dropdown-item @click.native="logout">退出登陆</el-dropdown-item>
-                </el-dropdown-menu>
-            </el-dropdown>
         </div>
     </div>
 </template>
@@ -61,7 +34,7 @@ export default {
         },
         isMobile() {
             return this.$store.state.layout.isMobile;
-        }
+        },
     },
     watch: {
         $route: {
@@ -81,14 +54,6 @@ export default {
         },
     },
     methods: {
-        //触发展开事件
-        expand() {
-            if (this.isMobile) {
-                this.$store.commit("toggleMobileBanner");
-            } else {
-                this.$store.commit("toggleBanner");
-            }
-        },
         //关闭标签
         closeTab(e, item, index) {
             e.stopPropagation();
@@ -115,7 +80,9 @@ export default {
             if (this.ctx) {
                 document.body.removeChild(this.ctx);
                 this.ctx = null;
+                return;
             }
+            console.log(1111, this.ctx);
             //创建右键弹框
             this.ctx = document.createElement("div");
             this.ctx.style.position = "fixed";
@@ -222,21 +189,6 @@ export default {
             const div = document.getElementById("tabList");
             div.scrollLeft += 100;
         },
-        logout() {
-            sessionStorage.clear();
-            localStorage.clear();
-            this.$router.replace("/login");
-            this.$store.commit("clearTabs");
-            this.axios.get(`/login/out`).then((res) => {});
-        },
-        //=====================================跳转到通知界面====================================//
-        jumpToNotice() {
-            this.$router.push("/v1/notice");
-        },
-        //=====================================跳转到更新页面====================================//
-        jumptoEdit() {
-            this.$router.push("/v1/editnotice");
-        },
     },
 };
 </script>
@@ -245,10 +197,11 @@ export default {
 .tabs {
     width: 100%;
     height: 40px;
+    margin: 0 5px;
     background: #eee;
     display: flex;
     .my-tabs {
-        width: 80%;
+        width: 100%;
     }
     .fold {
         margin: 0 1rem;
@@ -282,16 +235,6 @@ export default {
             transform: translate(0, 6px);
         }
     }
-    .left {
-        display: flex;
-        justify-content: space-between;
-    }
-    .right {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        right: 0px;
-    }
     .tab-list {
         width: 100%;
         line-height: 40px;
@@ -305,8 +248,8 @@ export default {
             position: relative;
             text-align: center;
             flex: 1 1 20%;
-            max-width: 200px;
-            cursor: default;
+            max-width: 150px;
+            cursor: pointer;
             padding: 0 1rem;
             .item-text {
                 display: inline-block;
@@ -358,25 +301,6 @@ export default {
                 &::before {
                     width: 0;
                 }
-            }
-        }
-    }
-    .utils {
-        display: flex;
-        align-items: center;
-        .icons {
-            height: 40px;
-            width: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-            &:hover {
-                background: $gray-400;
-            }
-            .iconfont {
-                font-size: 18px;
             }
         }
     }
